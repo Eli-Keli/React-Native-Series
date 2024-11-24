@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 
 // Form Validation
 import * as Yup from 'yup';
@@ -12,6 +13,27 @@ const PasswordSchema = Yup.object().shape({
 });
 
 export default function App() {
+
+  const [passsword, setPassword] = useState('');
+  const [isPassGenerated, setIsPassGenerated] = useState(false);
+
+  const [lowercase, setLowercase] = useState(true);
+  const [uppercase, setUppercase] = useState(true);
+  const [numbers, setNumbers] = useState(true);
+  const [symbols, setSymbols] = useState(true);
+
+  const generatePassword = (passwordLength: number) => {
+    //
+  };
+
+  const createPassword = (characterSet: string, passwordLength: number) => {
+    //
+  };
+
+  const resetPassword = () => {
+    //
+  };
+
   return (
     <View>
       <Text style={styles.text}>App</Text>
