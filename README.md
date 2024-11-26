@@ -20,7 +20,8 @@ I started this journey to:
 
 | Project Name              | Description                                   | Tech Stack                     | Status       |  
 |---------------------------|-----------------------------------------------|--------------------------------|--------------|  
-| **Password Generator App** | Generate secure passwords with custom options | React Native, TypeScript, Formik | Completed ✅ |  
+| **Password Generator App** | Generate secure passwords with custom options | React Native, TypeScript, Formik | Completed ✅ |
+| **Background Color Changer** | Randomly changes the background color on a tap | React Native, State Management   | Completed ✅ |   
 | **Next Project (Coming Soon)** | TBD                                         | React Native                  | In Progress ⚙️ |  
 
 Stay tuned for more updates as I add new projects weekly or daily!  
