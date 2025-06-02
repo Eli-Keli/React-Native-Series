@@ -22,75 +22,130 @@ I started this journey to:
 |---------------------------|-----------------------------------------------|--------------------------------|--------------|  
 | **Password Generator App** | Generate secure passwords with custom options | React Native, TypeScript, Formik | Completed ✅ |
 | **Background Color Changer** | Randomly changes the background color on a tap | React Native, State Management   | Completed ✅ |   
-| **Next Project (Coming Soon)** | TBD                                         | React Native                  | In Progress ⚙️ |  
+| **WhatsApp Clone** | This is a React Native WhatsApp clone using [Clerk](https://clerk.com/?utm_source=sponsorship&utm_medium=github&utm_campaign=simong&utm_content=rn-whatsapp) for user authentication with OTP.| React Native, Expo Router, SMS OTP, Reanimated, Gesture Handler, Gifted Chat   | In Progress ⚙️ |   
+| **Next Project (Coming Soon)** | TBD                                         | React Native                  | Coming Soon 🚧 |  
 
-Stay tuned for more updates as I add new projects weekly or daily!  
+Stay tuned for more updates as I add new projects monthly, weekly or daily!  
+
+---
+## Tech Stack  
+Here are the tools and technologies I’m using throughout this series:  
+- **Expo**: For rapid prototyping and development workflow.  
+- **React Native**: For building cross-platform mobile apps.  
+- **TypeScript**: For writing scalable, type-safe code.  
+- **Formik**: For form state management and validation.  
+- **Expo Router**: For navigation and routing in Expo apps.  
+- **Reanimated**: For smooth and performant animations.  
+- **React Native Gesture Handler**: For handling complex gestures.  
+- **Gifted Chat**: For building chat UIs.  
+- **Clerk**: For authentication (SMS OTP, user management).  
+- **State Management**: Using React state and context for app logic.  
+- **Custom Hooks**: For reusable logic across components.  
+- **Git & GitHub**: For version control and collaboration.
 
 ---
 
-## Tech Stack  
+### Whatsapp Clone Project Screenshots
 
-Here are the tools and technologies I’m using throughout this series:  
-- **React Native**: For building cross-platform mobile apps.  
-- **TypeScript**: For writing scalable, type-safe code.
->**Might use Expo**: for rapid prototyping and testing
+<div style="display: flex; flex-direction: 'row';">
+<img src="./whatsappClone/screenshots/1.png" width=30%>
+<img src="./whatsappClone/screenshots/2.png" width=30%>
+<img src="./whatsappClone/screenshots/3.png" width=30%>
+<img src="./whatsappClone/screenshots/4.png" width=30%>
+<img src="./whatsappClone/screenshots/5.png" width=30%>
+<img src="./whatsappClone/screenshots/6.png" width=30%>
+<img src="./whatsappClone/screenshots/7.png" width=30%>
+<img src="./whatsappClone/screenshots/8.png" width=30%>
+<img src="./whatsappClone/screenshots/9.png" width=30%>
+
+</div>
+
+### Whatsapp Clone Project Demo
+
+<div style="display: flex; flex-direction: 'row';">
+<img src="./whatsappClone/screenshots/calls.gif" width=40%>
+<img src="./whatsappClone/screenshots/chats.gif" width=40%>
+<img src="./whatsappClone/screenshots/contacts.gif" width=40%>
+<img src="./whatsappClone/screenshots/messages.gif" width=40%>
+</div>
+
+
 
 ---
 
 ## Goals  
 
-1. Build 10+ React Native projects by [specific timeline, e.g., 3 months].  
-2. Learn advanced mobile development concepts.  
-3. Gain hands-on experience with React Native libraries and tools.  
-4. Contribute code examples to the developer community.  
+1. Complete 10+ React Native projects within the next few months.  
+2. Master advanced mobile development concepts and best practices.  
+3. Gain practical experience with popular React Native libraries and tools.  
+4. Share code examples and insights with the developer community.  
+5. Foster continuous learning and improvement through hands-on projects.  
 
 ---
 
 ## Getting Started
 
->**Note**: Make sure you have cloned this repository ```git clone https://github.com/Eli-Keli/React-Native-Series.git``` and ```cd React-Native-Series/projectname``` before proceeding.
+> **Note**: Make sure you have cloned this repository using  
+> ```bash
+> git clone https://github.com/Eli-Keli/React-Native-Series.git
+> cd React-Native-Series/projectname
+> ```
+> Replace `projectname` with the specific project folder you want to work on.
 
-## Step 1: Start the Metro Server
+### Step 1: Install Dependencies
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+Navigate to the project directory and install the required dependencies:
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+npm install
+# or
+yarn install
 ```
 
-### For iOS
+### Step 2: Set Up Your Development Environment
+
+- Ensure you have [Node.js](https://nodejs.org/) installed (preferably the latest LTS version).
+- Install [Expo CLI](https://docs.expo.dev/get-started/installation/) globally if you haven't already:
+
+    ```bash
+    npm install -g expo-cli
+    ```
+
+- For iOS development, install Xcode and its command line tools.
+- For Android development, install Android Studio and set up the Android SDK.
+
+### Step 3: Start the Project
+
+Run the following command to start the development server:
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npx expo start
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+This will open the Expo Developer Tools in your browser/terminal. You can then:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+- Scan the QR code with the Expo Go app on your mobile device (available on [iOS](https://apps.apple.com/app/expo-go/id982107779) and [Android](https://play.google.com/store/apps/details?id=host.exp.exponent)).
+- Or, run the app on an emulator/simulator by selecting the appropriate option in the Expo Developer Tools.
+
+### Step 4: Explore and Modify
+
+- Browse the project files and start making changes.
+- Hot reloading is enabled by default, so your changes will reflect instantly in the app.
+
+### Step 5: Troubleshooting
+
+- If you encounter issues, try clearing the cache:
+
+```bash
+npx expo start -c
+```
+
+- Check the [Expo documentation](https://docs.expo.dev/) or open an issue in this repository for help.
+
+---
+
+
+
 
 ## 🌱 Contributing
 Feel free to contribute by suggesting new project ideas, pointing out improvements, or providing feedback. Open an issue or submit a pull request—collaboration is welcome!
