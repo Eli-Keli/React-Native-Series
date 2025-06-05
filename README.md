@@ -29,19 +29,29 @@ Stay tuned for more updates as I add new projects monthly, weekly or daily!
 
 ---
 ## Tech Stack  
-Here are the tools and technologies I’m using throughout this series:  
+Here are the tools and technologies I used throughout this series:  
 - **Expo**: For rapid prototyping and development workflow.  
 - **React Native**: For building cross-platform mobile apps.  
 - **TypeScript**: For writing scalable, type-safe code.  
 - **Formik**: For form state management and validation.  
 - **Expo Router**: For navigation and routing in Expo apps.  
-- **Reanimated**: For smooth and performant animations.  
-- **React Native Gesture Handler**: For handling complex gestures.  
-- **Gifted Chat**: For building chat UIs.  
 - **Clerk**: For authentication (SMS OTP, user management).  
 - **State Management**: Using React state and context for app logic.  
 - **Custom Hooks**: For reusable logic across components.  
 - **Git & GitHub**: For version control and collaboration.
+- **Reanimated**: For smooth and performant animations.  
+- **React Native Gesture Handler**: For handling complex gestures.  
+- **React Native Section Alphabet List**: For displaying and navigating lists with alphabetical section headers, similar to contact lists in messaging apps.
+- **Gifted Chat**: For building chat UIs.  
+
+
+## Goals  
+
+1. Complete 10+ React Native projects within the next few months.  
+2. Master advanced mobile development concepts and best practices.  
+3. Gain practical experience with popular React Native libraries and tools.  
+4. Share code examples and insights with the developer community.  
+5. Foster continuous learning and improvement through hands-on projects.  
 
 ---
 
@@ -70,18 +80,6 @@ Here are the tools and technologies I’m using throughout this series:
 </div>
 
 
-
----
-
-## Goals  
-
-1. Complete 10+ React Native projects within the next few months.  
-2. Master advanced mobile development concepts and best practices.  
-3. Gain practical experience with popular React Native libraries and tools.  
-4. Share code examples and insights with the developer community.  
-5. Foster continuous learning and improvement through hands-on projects.  
-
----
 
 ## Getting Started
 
