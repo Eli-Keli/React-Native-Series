@@ -18,12 +18,13 @@ I started this journey to:
 
 ## Featured Projects  
 
-| Project Name              | Description                                   | Tech Stack                     | Status       |  
-|---------------------------|-----------------------------------------------|--------------------------------|--------------|  
-| **Password Generator App** | Generate secure passwords with custom options | React Native, TypeScript, Formik | Completed ✅ |
-| **Background Color Changer** | Randomly changes the background color on a tap | React Native, State Management   | Completed ✅ |   
-| **WhatsApp Clone** | This is a React Native WhatsApp clone using [Clerk](https://clerk.com/?utm_source=sponsorship&utm_medium=github&utm_campaign=simong&utm_content=rn-whatsapp) for user authentication with OTP.| React Native, Expo Router, SMS OTP, Reanimated, Gesture Handler, Gifted Chat   | In Progress ⚙️ |   
-| **Next Project (Coming Soon)** | TBD                                         | React Native                  | Coming Soon 🚧 |  
+| Project Name                  | Description                                                                 | Tech Stack                                   | Status           |
+|-------------------------------|-----------------------------------------------------------------------------|----------------------------------------------|------------------|
+| **Password Generator App**    | Generate secure passwords with custom options                               | React Native, TypeScript, Formik             | Completed ✅     |
+| **Background Color Changer**  | Randomly changes the background color on a tap                              | React Native, State Management               | Completed ✅     |
+| **WhatsApp Clone**            | React Native WhatsApp clone using [Clerk](https://clerk.com/?utm_source=sponsorship&utm_medium=github&utm_campaign=simong&utm_content=rn-whatsapp) for user authentication with OTP. | React Native, Expo Router, SMS OTP, Reanimated, Gesture Handler, Gifted Chat | Completed ✅     |
+| **GIF Reaction Picker**       |  This will be a simple but fun app where users can select different emotional situations and see matching GIFs. | In Progress 🚀   |
+| **Next Project (Coming Soon)**| TBD                                                                         | React Native                                  | Coming Soon 🚧   | 
 
 Stay tuned for more updates as I add new projects monthly, weekly or daily!  
 
