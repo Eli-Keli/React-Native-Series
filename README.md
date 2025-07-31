@@ -23,7 +23,7 @@ I started this journey to:
 | **Password Generator App**    | Generate secure passwords with custom options                               | React Native, TypeScript, Formik             | Completed ✅     |
 | **Background Color Changer**  | Randomly changes the background color on a tap                              | React Native, State Management               | Completed ✅     |
 | **WhatsApp Clone**            | React Native WhatsApp clone using [Clerk](https://clerk.com/?utm_source=sponsorship&utm_medium=github&utm_campaign=simong&utm_content=rn-whatsapp) for user authentication with OTP. | React Native, Expo Router, SMS OTP, Reanimated, Gesture Handler, Gifted Chat | Completed ✅     |
-| **GIF Reaction Picker**       |  This will be a simple but fun app where users can select different emotional situations and see matching GIFs. | In Progress 🚀   |
+| **GIF Reaction Picker**       |  Users select an emotion and instantly see matching GIFs fetched live from the GIPHY API. Features dynamic GIF loading, endless refresh, favorites, and sharing. | React Native, TypeScript, Zustand, GIPHY API | Completed ✅     |
 | **Next Project (Coming Soon)**| TBD                                                                         | React Native                                  | Coming Soon 🚧   | 
 
 Stay tuned for more updates as I add new projects monthly, weekly or daily!  
@@ -55,6 +55,33 @@ Here are the tools and technologies I used throughout this series:
 5. Foster continuous learning and improvement through hands-on projects.  
 
 ---
+
+### GIF Reaction Picker – Completion Report
+
+**Status:** Completed ✅
+
+**Description:**  
+The GIF Reaction Picker app lets users select an emotion and instantly view a curated set of GIFs fetched live from the GIPHY API.  
+- Dynamic GIF loading based on emotion  
+- Endless refresh for new GIFs  
+- Favorites and sharing support  
+- Robust error handling and fallback GIFs  
+- Powered by Zustand for state management
+
+**Tech Highlights:**  
+- React Native + Expo  
+- TypeScript  
+- Zustand  
+- GIPHY API integration
+
+**How it works:**  
+1. Select an emotion card  
+2. App fetches 25 GIFs from GIPHY using emotion-specific search terms  
+3. Tap "New Reaction" to cycle through GIFs or fetch more  
+4. Mark favorites and share GIFs
+
+---
+
 
 ### Whatsapp Clone Project Screenshots
 
