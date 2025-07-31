@@ -1,0 +1,1 @@
+// List of emotions with matching GIFs
