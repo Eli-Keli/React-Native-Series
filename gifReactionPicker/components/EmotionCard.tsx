@@ -13,14 +13,29 @@ interface EmotionCardProps {
 
 export const EmotionCard: React.FC<EmotionCardProps> = ({ emotion }) => {
     const router = useRouter();
-    const setSelectedEmotion = useGifStore((state) => state.setSelectedEmotion);
+    const { setSelectedEmotion, fetchGifs } = useGifStore();
 
-    const handlePress = () => {
+    const handlePress = async () => {
         if (Platform.OS !== 'web') {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
         }
-        setSelectedEmotion(emotion);
-        router.push('/gif');
+        try {
+            console.log('Fetching GIFs for emotion:', emotion.name);
+            const gifUrls = await fetchGifs(emotion.id);
+
+            const emotionWithGifs = {
+                ...emotion,
+                gifs: gifUrls,
+            };
+
+            setSelectedEmotion(emotionWithGifs);
+            router.push('/gif');
+        } catch (error) {
+            console.error('Error fetching GIFs:', error);
+            // Still navigate with empty gifs array as fallback
+            setSelectedEmotion(emotion);
+            router.push('/gif');
+        }
     };
 
     return (

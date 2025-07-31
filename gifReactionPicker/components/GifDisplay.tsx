@@ -12,9 +12,10 @@ import { useFavoritesStore } from '@/store/favoritesStore';
 
 export const GifDisplay: React.FC = () => {
     const router = useRouter();
-    const selectedEmotion = useGifStore((state) => state.selectedEmotion);
+    const { selectedEmotion, fetchGifs } = useGifStore();
     const [currentGifIndex, setCurrentGifIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
+    const [isRefreshing, setIsRefreshing] = useState(false);
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const scaleAnim = useRef(new Animated.Value(0.9)).current;
 
@@ -35,12 +36,43 @@ export const GifDisplay: React.FC = () => {
     const favoriteId = `${selectedEmotion.id}-${currentGifIndex}`;
     const isFavorited = isFavorite(favoriteId);
 
-    const handleRefresh = () => {
+    const handleRefresh = async () => {
         if (Platform.OS !== 'web') {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         }
-        const nextIndex = (currentGifIndex + 1) % selectedEmotion.gifs.length;
-        setCurrentGifIndex(nextIndex);
+        // If we have more GIFs in the current array, just move to the next one
+        if (currentGifIndex + 1 < selectedEmotion.gifs.length) {
+            const nextIndex = currentGifIndex + 1;
+            setCurrentGifIndex(nextIndex);
+            return;
+        }
+
+        // If we've reached the end, fetch new GIFs from GIPHY
+        try {
+            setIsRefreshing(true);
+            console.log('Fetching new GIFs for refresh...');
+
+            const newGifUrls = await fetchGifs(selectedEmotion.id);
+
+            // Update the selected emotion with new GIFs
+            const updatedEmotion = {
+                ...selectedEmotion,
+                gifs: [...selectedEmotion.gifs, ...newGifUrls],
+            };
+
+            // Update the store with new GIFs
+            const { setSelectedEmotion } = useGifStore.getState();
+            setSelectedEmotion(updatedEmotion);
+
+            // Move to the first new GIF
+            setCurrentGifIndex(selectedEmotion.gifs.length);
+        } catch (error) {
+            console.error('Error fetching new GIFs:', error);
+            // Fallback: just cycle back to the beginning
+            setCurrentGifIndex(0);
+        } finally {
+            setIsRefreshing(false);
+        }
     };
 
     const handleBack = () => {
@@ -177,9 +209,16 @@ export const GifDisplay: React.FC = () => {
                 style={[styles.refreshButton, { backgroundColor: selectedEmotion.color }]}
                 onPress={handleRefresh}
                 activeOpacity={0.8}
+                disabled={isRefreshing}
             >
-                <RefreshCw size={24} color="#FFFFFF" />
-                <Text style={styles.refreshText}>New Reaction</Text>
+                {isRefreshing ? (
+                    <ActivityIndicator size="small" color="#FFFFFF" />
+                ) : (
+                    <RefreshCw size={24} color="#FFFFFF" />
+                )}
+                <Text style={styles.refreshText}>
+                    {isRefreshing ? 'Loading...' : 'New Reaction'}
+                </Text>
             </TouchableOpacity>
         </View>
     );
