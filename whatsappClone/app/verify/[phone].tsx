@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity, Platform, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { router, Stack, useLocalSearchParams } from 'expo-router';
 import Colors from '@/constants/Colors';
 import {
     CodeField,
@@ -28,37 +28,43 @@ const Page = () => {
     useEffect(() => {
         if (code.length === 6) {
             console.log(`Code entered: ${code}`);
+            verifyCode();
 
-            if (signin === 'true') {
-                console.log(`Verifying sign-in for phone: ${phone}`);
-                veryifySignIn();
-            } else {
-                verifyCode();
-            }
+            // if (signin === 'true') {
+            //     console.log(`Verifying sign-in for phone: ${phone}`);
+            //     veryifySignIn();
+            // } else {
+            //     verifyCode();
+            // }
         }
     }, [code]);
 
     const verifyCode = async () => {
-        try {
-            // Use the code provided by the user and attempt verification
-            const signUpAttempt = await signUp!.attemptPhoneNumberVerification({
-                code,
-            });
+        console.log(`Verifying code for phone: ${phone} with code: ${code}`);
+        router.push('/(tabs)/chats')
+        // Note: The Clerk API currently does not support phone numbers from Kenya.
+        // "Phone numbers from this country (Kenya) are currently not supported. For more information, please contact support."
 
-            // If verification was completed, set the session to active
-            if (signUpAttempt.status === 'complete') {
-                await setActive!({ session: signUpAttempt.createdSessionId });
-            } else {
-                // If the status is not complete, check why. User may need to complete further steps.
-                console.error(signUpAttempt);
-                Alert.alert('Verification Incomplete', 'Please check the code and try again.');
-            }
-        } catch (err) {
-            console.log('error', JSON.stringify(err, null, 2));
-            if (isClerkAPIResponseError(err)) {
-                Alert.alert('Error', err.errors[0].message);
-            }
-        }
+        // try {
+        //     // Use the code provided by the user and attempt verification
+        //     const signUpAttempt = await signUp!.attemptPhoneNumberVerification({
+        //         code,
+        //     });
+
+        //     // If verification was completed, set the session to active
+        //     if (signUpAttempt.status === 'complete') {
+        //         await setActive!({ session: signUpAttempt.createdSessionId });
+        //     } else {
+        //         // If the status is not complete, check why. User may need to complete further steps.
+        //         console.error(signUpAttempt);
+        //         Alert.alert('Verification Incomplete', 'Please check the code and try again.');
+        //     }
+        // } catch (err) {
+        //     console.log('error', JSON.stringify(err, null, 2));
+        //     if (isClerkAPIResponseError(err)) {
+        //         Alert.alert('Error', err.errors[0].message);
+        //     }
+        // }
     };
 
     const veryifySignIn = async () => {
@@ -80,34 +86,39 @@ const Page = () => {
     };
 
     const resendCode = async () => {
-        try {
-            if (signin === 'true') {
-                const { supportedFirstFactors } = await signIn!.create({
-                    identifier: phone,
-                })
+        console.log(`Resending code for phone: ${phone}`);
+        router.push('/(tabs)/chats')
+        // Note: The Clerk API currently does not support phone numbers from Kenya.
+        // "Phone numbers from this country (Kenya) are currently not supported. For more information, please contact support."
+        // Uncomment the following code to enable resend functionality
+        // try {
+        //     if (signin === 'true') {
+        //         const { supportedFirstFactors } = await signIn!.create({
+        //             identifier: phone,
+        //         })
 
-                const firstPhoneFactor: any = supportedFirstFactors?.find((factor: any) => {
-                    return factor.strategy === 'phone_code';
-                });
+        //         const firstPhoneFactor: any = supportedFirstFactors?.find((factor: any) => {
+        //             return factor.strategy === 'phone_code';
+        //         });
 
-                const { phoneNumberId } = firstPhoneFactor;
+        //         const { phoneNumberId } = firstPhoneFactor;
 
-                await signIn!.prepareFirstFactor({
-                    strategy: 'phone_code',
-                    phoneNumberId,
-                });
-            } else {
-                await signUp!.create({
-                    phoneNumber: phone,
-                });
-                signUp!.preparePhoneNumberVerification();
-            }
-        } catch (err) {
-            console.log('error', JSON.stringify(err, null, 2));
-            if (isClerkAPIResponseError(err)) {
-                Alert.alert('Error', err.errors[0].message);
-            }
-        }
+        //         await signIn!.prepareFirstFactor({
+        //             strategy: 'phone_code',
+        //             phoneNumberId,
+        //         });
+        //     } else {
+        //         await signUp!.create({
+        //             phoneNumber: phone,
+        //         });
+        //         signUp!.preparePhoneNumberVerification();
+        //     }
+        // } catch (err) {
+        //     console.log('error', JSON.stringify(err, null, 2));
+        //     if (isClerkAPIResponseError(err)) {
+        //         Alert.alert('Error', err.errors[0].message);
+        //     }
+        // }
     };
 
     return (

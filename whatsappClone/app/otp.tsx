@@ -38,36 +38,43 @@ const Page = () => {
 
     const sendOTP = async () => {
         console.log(`Sending OTP to ${phoneNumber}`);
-        setLoading(true);
-
-        try {
-            // Start the sign-up process with the phone number
-            await signUp?.create({
-                phoneNumber: phoneNumber,
-            })
-
-            // Start the verification - a SMS message will be sent to the number with a one-time code
-            await signUp!.preparePhoneNumberVerification();
-
-            console.log(`OTP sent to ${phoneNumber}`);
-
+        // Simulate short API call delay
+        setTimeout(() => {
+            setLoading(true);
             router.push(`/verify/${phoneNumber}`);
+            setLoading(false);
+        }, 1000);
+        // Note: The Clerk API currently does not support phone numbers from Kenya.
+        // "Phone numbers from this country (Kenya) are currently not supported. For more information, please contact support."
 
-        } catch (error) {
-            console.error('Error sending OTP:', JSON.stringify(error, null, 2));
+        // try {
+        //     // Start the sign-up process with the phone number
+        //     await signUp?.create({
+        //         phoneNumber: phoneNumber,
+        //     })
 
-            // Handle errors from the Clerk API
-            if (isClerkAPIResponseError(error)) {
-                if (error.errors[0].code === 'form_identifier_exists') {
-                    // User signed up before
-                    console.log('User signed up before');
-                    await trySignIn();
-                } else {
-                    setLoading(false);
-                    Alert.alert(error.errors[0].longMessage || error.errors[0].message);
-                }
-            }
-        }
+        //     // Start the verification - a SMS message will be sent to the number with a one-time code
+        //     await signUp!.preparePhoneNumberVerification();
+
+        //     console.log(`OTP sent to ${phoneNumber}`);
+
+        //     router.push(`/verify/${phoneNumber}`);
+
+        // } catch (error) {
+        //     console.error('Error sending OTP:', JSON.stringify(error, null, 2));
+
+        //     // Handle errors from the Clerk API
+        //     if (isClerkAPIResponseError(error)) {
+        //         if (error.errors[0].code === 'form_identifier_exists') {
+        //             // User signed up before
+        //             console.log('User signed up before');
+        //             await trySignIn();
+        //         } else {
+        //             setLoading(false);
+        //             Alert.alert(error.errors[0].longMessage || error.errors[0].message);
+        //         }
+        //     }
+        // }
     }
     const trySignIn = async () => {
         console.log(`Trying to sign in with ${phoneNumber}`);
